@@ -1,21 +1,16 @@
 $(function() {
     var curClue = 0;
     var curGuess = "";
+    var curClick = false;
     var clues;
     var answers;
     curFragments = [];
     var guessedWords = [];
 
     function addFragment(fragment) {
-        if (fragment.length <= $(".letter").length - curGuess.length) {
-            curGuess += fragment;
-            for (var i = 0; i < curGuess.length; i++) {
-                $(".letter").eq(i).html(curGuess.charAt(i));
-            }
-            return true;
-        }
-        else {
-            return false;
+        curGuess += fragment;
+        for (var i = 0; i < curGuess.length; i++) {
+            $(".letter").eq(i).html(curGuess.charAt(i));
         }
     }
 
@@ -33,6 +28,7 @@ $(function() {
             spentFragments.map(function(x) {$(x).remove()});
         }
         curGuess = "";
+        curFragments = [];
         $(".letter").html("");
         $(".fragment").fadeTo(300, 1);
     }
@@ -41,7 +37,7 @@ $(function() {
         $("#clue").html(clues[curClue]);
         $(".letter").remove();
         for (var i = 0; i < answers[curClue].length; i++) {
-            $("#guess").append("<div class=\"letter\"></div>");
+            $("#guess ul").append("<li class=\"letter\"></li>");
         }
     }
 
@@ -58,18 +54,22 @@ $(function() {
         } while (guessedWords.indexOf(curClue) >= 0)
         getClue(curClue);
     }
-    
-    function setUp() {
+
+    function newGame() {
         clues = ["1. snowman in Frozen", "2. snowman in Frozen", "3. snowman in Frozen"];
         answers = ["olaf", "olafol", "afolaf"];
-        
         getClue(0);
-        
+    }
+    
+    function setUp() {
         $(".fragment").click(function() {
-            if (addFragment($(this).html())) {
-                $(this).fadeTo(300, 0).css("cursor", "default");
+            var fragment = $(this).html();
+            if (curFragments.indexOf(this) == -1 && fragment.length <= $(".letter").length - curGuess.length) {
+                addFragment(fragment);
+                curFragments.push(this);
+                $(this).css("cursor", "default")
+                       .fadeTo(300, 0, function() {curClick = false});
             }
-            curFragments.push(this);
         })
 
         $("#submit").click(function() {
@@ -87,6 +87,11 @@ $(function() {
             resetGuess();
             nextClue(false);
         })
+
+        $("#new-game").click(function() {
+            newGame();
+        })
+        newGame();
     }
     setUp();
 })

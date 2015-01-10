@@ -97,6 +97,17 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+@font-face{
+    font-family: Batch;
+    src: url('../assets/batch.eot');
+    src: url('../assets/batch.eot?#iefix') format('embedded-opentype'),
+         url('../assets/batch.woff') format('woff'),
+         url('../assets/batch.ttf') format('truetype'),
+         url('../assets/batch.svg#batchregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .disable-select {
     -webkit-user-select: none;  
     -moz-user-select: none;    
@@ -107,8 +118,15 @@ textarea {
 
 #content {
     overflow: hidden;
-    margin: 10% 0;
+    margin: 2%;
+    width: 96%;
     text-align: center;
+}
+
+#logo {
+    width: 30%;
+    margin: 2% 25%;
+    max-width: 800px;
 }
 
 #calc {
@@ -128,6 +146,7 @@ textarea {
 }
 
 #word-screen {
+    text-align: center;
     position: relative;
     background-color: #666;    
     border-radius: 0.4em;
@@ -149,12 +168,17 @@ textarea {
     padding: 0 1.5em;
 }
 
-.letter {
-    text-align: center;
+#guess ul {
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+}
+
+#guess ul li {
     float: left;
     width: 1em;
     height: 1.3em;
-    margin-right: 1em;
+    margin: 0 0.5em;
     border-bottom: 6px solid #eee;
 }
 
@@ -186,6 +210,10 @@ textarea {
     cursor: pointer;
 }
 
+.button {
+    font-family: Batch;
+}
+
 #submit {
     background-color: #2ecc71;
 }
@@ -198,7 +226,7 @@ textarea {
     background-color: #f1c40f;
 }
 
-#new-game {
+#shuffle {
     background-color: #3498db;
 }
 
