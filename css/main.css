@@ -102,21 +102,69 @@ textarea {
     -moz-user-select: none;    
     -ms-user-select: none;      
     user-select: none;
+    cursor: default;
 }
 
 #content {
+    overflow: hidden;
     margin: 10% 0;
+    text-align: center;
+}
+
+#calc {
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 0.4em;
+    font-family: Courier, sans-serif;
+    border: 2px solid #ccc;
+}
+
+#word-screen-wrapper {
+    display: inline-block;
+    background-color: #aaa;
+    border-radius: 0.4em;
+    margin: 2em;
+    margin-bottom: 1em;
+}
+
+#word-screen {
+    position: relative;
+    background-color: #666;    
+    border-radius: 0.4em;
+    width: 22.5em;
+    min-height: 14em;
+    color: white;
+}
+
+#clue {
+    display: inline-block;
+    padding: 6em 4em;
+}
+
+#guess {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 1.5em;
+}
+
+.letter {
+    text-align: center;
+    float: left;
+    width: 1em;
+    height: 1.3em;
+    margin-right: 1em;
+    border-bottom: 6px solid #eee;
 }
 
 #fragment-grid {
     width: 18em;
-    padding: 0.25em;
     border-radius: 0.4em;
-    margin: 0 auto;
+    margin: 1em;
     overflow: hidden;
     font-size: 1.3em;
     text-align: center;
-    background-color: #eee;
     color: white;
 }
 
@@ -125,24 +173,34 @@ textarea {
     position: relative;
     background-color: #aaa;
     border-radius: 0.2em;
-    height: 2em;
-    line-height: 2em;
     width: 4em;
     margin: 0.25em;
+    height: 2em;
 }
 
-.fragment {
+.fragment, .button {
+    height: 2em;
+    line-height: 2em;
     background-color: #1abc9c;
     border-radius: 0.2em;
     cursor: pointer;
 }
 
+#submit {
+    background-color: #2ecc71;
+}
 
+#reset {
+    background-color: #e74c3c;
+}
 
+#skip {
+    background-color: #f1c40f;
+}
 
-
-
-
+#new-game {
+    background-color: #3498db;
+}
 
 
 
