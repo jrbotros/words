@@ -117,15 +117,28 @@ textarea {
 }
 
 #content {
+    stroke: black;
+    color: #3498db;
+    font-size: 12px;
+    margin: 2% 0;
     overflow: hidden;
-    margin: 2%;
-    width: 96%;
     text-align: center;
 }
 
+#credits {
+    font-family: Courier, serif;
+    font-size: 0.8em;
+}
+
+a, a:hover, a:visited {
+    color: #3498db;
+    text-decoration: underline;
+}
+
 #logo {
-    width: 30%;
-    margin: 2% 25%;
+    display: block;
+    width: 24em;
+    margin: 1em auto;
     max-width: 800px;
 }
 
@@ -151,13 +164,18 @@ textarea {
     background-color: #666;    
     border-radius: 0.4em;
     width: 22.5em;
-    min-height: 14em;
+    height: 15em;
     color: white;
+    cursor: pointer;
 }
 
 #clue {
-    display: inline-block;
-    padding: 6em 4em;
+    padding: 0 4em;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 #guess {
@@ -165,7 +183,7 @@ textarea {
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 0 1.5em;
+    padding: 0 1em;
 }
 
 #guess ul {
